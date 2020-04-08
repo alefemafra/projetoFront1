@@ -1,7 +1,6 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "http://alefemafra.github.io/projetoFront1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -10,7 +9,6 @@
     "@unform/core": "^2.0.0",
     "@unform/web": "^2.0.0",
     "axios": "^0.19.2",
-    "gh-pages": "^2.2.0",
     "history": "^4.10.1",
     "immer": "^6.0.1",
     "polished": "^3.4.4",
@@ -37,8 +35,6 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
