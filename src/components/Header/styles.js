@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  background-color: #002b45;
+  background-color: #ebebeb;
   padding: 15px 20px;
 `;
 
@@ -10,12 +10,12 @@ export const Content = styled.div`
   display: flex;
   flex-flow: row;
 
-  div {
+  /* div {
     img {
       filter: invert(99%) sepia(0%) saturate(4%) hue-rotate(163deg)
         brightness(102%) contrast(105%);
     }
-  }
+  } */
 
   nav {
     margin-left: 50px;
@@ -24,7 +24,7 @@ export const Content = styled.div`
 
     li {
       list-style: none;
-      color: white;
+      color: #000000;
       font-size: 17px;
     }
   }

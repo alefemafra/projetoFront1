@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const Container = styled.div`
 
 export const StepOne = styled.div`
   width: 100%;
-  display: ${props => props.display || 'block'};
+  display: ${props => props.display || "block"};
 
   div {
     p {
@@ -39,7 +39,7 @@ export const StepOne = styled.div`
 `;
 
 export const StepTwo = styled.div`
-  display: ${props => props.display || 'block'};
+  display: ${props => props.display || "block"};
   flex-flow: row wrap;
   justify-content: center;
 
@@ -49,7 +49,7 @@ export const StepTwo = styled.div`
       flex-flow: column;
       align-items: center;
       width: 50%;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
     }
 
     &.budgetAmount {
@@ -90,8 +90,31 @@ export const StepTwo = styled.div`
     }
 
     p {
+      display: flex;
+      align-items: center;
       color: white;
       font-size: 20px;
+
+      button {
+        float: none;
+        margin-top: 0px;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        font-weight: 600;
+        font-size: 1em;
+        text-transform: uppercase;
+        text-align: center;
+        cursor: pointer;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+
+        svg {
+          fill: #fff;
+        }
+      }
     }
   }
 `;
@@ -101,11 +124,11 @@ export const Title = styled.p`
   font-size: 25px;
   font-weight: 600;
   width: 100%;
-  margin: ${props => props.margin || '0px'};
+  margin: ${props => props.margin || "0px"};
 `;
 
 export const BudgetValue = styled.div`
-  display: ${props => props.display || 'block'};
+  display: ${props => props.display || "block"};
   flex-flow: column;
   width: 50%;
   margin-left: 30px;

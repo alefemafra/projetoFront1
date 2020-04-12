@@ -1,28 +1,45 @@
-import React, { useState } from 'react';
-import { Form } from '@unform/web';
-import { Input, ImageInput } from '../Form';
-import Select from 'react-select';
-import { Container, StepOne, StepTwo, BudgetValue, Title } from './styles';
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { Form } from "@unform/web";
+import { Input, ImageInput } from "../Form";
+import Select from "react-select";
+import Modal from "../Modal";
+import { Container, StepOne, StepTwo, BudgetValue, Title } from "./styles";
+import docCar from "../../assets/documento-veiculo.png";
+import cnh from "../../assets/cnh.jpg";
+import frontCar from "../../assets/frent-kwid.jpg";
+import backCar from "../../assets/traseira-kwid.jpg";
+import sideCar from "../../assets/lateral-kwid.jpeg";
+import budgetPhoto from "../../assets/orcamento-examplo.jpg";
 
 const yearCarOptions = [
-  { value: true, label: '2010 ou mais novo' },
-  { value: false, label: '2009 ou mais velho' },
+  { value: true, label: "2010 ou mais novo" },
+  { value: false, label: "2009 ou mais velho" }
 ];
 
 const documentInYourNameOptions = [
-  { value: true, label: 'Sim' },
-  { value: false, label: 'Não' },
+  { value: true, label: "Sim" },
+  { value: false, label: "Não" }
 ];
 
 const paidCarOptions = [
-  { value: true, label: 'Quitado' },
-  { value: false, label: 'Financiado' },
+  { value: true, label: "Quitado" },
+  { value: false, label: "Financiado" }
 ];
 
 const budgetAmountOptions = [
-  { value: true, label: 'Valor Maximo' },
-  { value: false, label: 'Solicitar Valor' },
+  { value: true, label: "Valor Maximo" },
+  { value: false, label: "Solicitar Valor" }
 ];
+
+const imagesExample = {
+  docCar,
+  cnh,
+  frontCar,
+  backCar,
+  sideCar,
+  budgetPhoto
+};
 
 export default function FormScreening() {
   const [aproved, setAproved] = useState(false);
@@ -35,11 +52,14 @@ export default function FormScreening() {
   function handleChangeStep() {
     if (yearCar.value && documentInYourName.value && paidCar.value) {
       setAproved(true);
+    } else {
+      toast.error(
+        "Infelizmente não podemos prosseguir com o processo, pois não tentede aos requisitos necessarios."
+      );
     }
   }
 
   function handleChangeBudget(e) {
-    console.log(e);
     if (!e.value) {
       setBudgetAmount(e);
       settypeValue(true);
@@ -49,13 +69,13 @@ export default function FormScreening() {
   }
 
   function handleSubmit() {
-    console.log('test');
+    console.log("test");
   }
 
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <StepOne display={aproved ? 'none' : 'block'}>
+        <StepOne display={aproved ? "none" : "block"}>
           <div>
             <p> Qual é o ano do seu veículo ?</p>
             <Select
@@ -85,7 +105,7 @@ export default function FormScreening() {
           </div>
           <a onClick={e => handleChangeStep(e)}>Continuar</a>
         </StepOne>
-        <StepTwo display={aproved ? 'flex' : 'none'}>
+        <StepTwo display={aproved ? "flex" : "none"}>
           <Title margin="20px 10px 30px">
             Para prosseguimos preencha os dados abaixo:
           </Title>
@@ -113,7 +133,7 @@ export default function FormScreening() {
                 placeholder="Selecionar"
               />
             </div>
-            <BudgetValue display={typeValue ? 'flex' : 'none'}>
+            <BudgetValue display={typeValue ? "flex" : "none"}>
               <Input
                 type="text"
                 label="Digite o Valor Desejado"
@@ -124,38 +144,69 @@ export default function FormScreening() {
           </div>
 
           <Title margin="20px 10px 30px">
-            Para proseguir adicione as fotos solicitadas:{' '}
+            Para proseguir adicione as fotos solicitadas:{" "}
           </Title>
 
           <div className="photo">
-            <p>Foto do documento do veículo: </p>
+            <p>
+              Foto do documento do veículo:{" "}
+              <Modal>{imagesExample["docCar"]}</Modal>
+            </p>
             <ImageInput name="documentCar" />
           </div>
           <div className="photo">
-            <p>Insira uma foto da sua CNH: </p>
+            <p>
+              Insira uma foto da sua CNH:
+              <Modal>{imagesExample["cnh"]}</Modal>
+            </p>
             <ImageInput name="CnhPhoto" />
           </div>
 
-          <Title margin="50px 10px 30px">
-            Insira 4 fotos do veículo acidentado:{' '}
+          <Title margin="20px 10px 30px">
+            Insira 4 fotos do veículo acidentado:{" "}
           </Title>
 
           <div className="photo">
-            <p>Frente: </p>
+            <p>
+              Frente:
+              <Modal>{imagesExample["frontCar"]}</Modal>
+            </p>
             <ImageInput name="frontCar" />
           </div>
           <div className="photo">
-            <p>Traseira: </p>
+            <p>
+              Traseira:
+              <Modal>{imagesExample["backCar"]}</Modal>
+            </p>
             <ImageInput name="backCar" />
           </div>
           <div className="photo">
-            <p>Lateral 1: </p>
+            <p>
+              Lateral 1:
+              <Modal>{imagesExample["sideCar"]}</Modal>
+            </p>
             <ImageInput name="sideCarOne" />
           </div>
           <div className="photo">
-            <p>Lateral 2: </p>
+            <p>
+              Lateral 2:
+              <Modal>{imagesExample["sideCar"]}</Modal>
+            </p>
             <ImageInput name="sideCarTwo" />
           </div>
+
+          <Title margin="20px 10px 30px">
+            Se você tiver um orçamento da oficina, envie foto:
+          </Title>
+
+          <div className="photo">
+            <p>
+              Foto do Orçamento:
+              <Modal>{imagesExample["budgetPhoto"]}</Modal>
+            </p>
+            <ImageInput name="budgetPhoto" />
+          </div>
+
           <div className="enviar">
             <button type="submit">Enviar</button>
           </div>
