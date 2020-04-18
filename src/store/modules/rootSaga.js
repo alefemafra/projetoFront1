@@ -1,8 +1,7 @@
-import { all } from 'redux-saga/effects';
+import { all } from "redux-saga/effects";
 
-import auth from './auth/sagas';
-import recipient from './recipient/sagas';
+import sendScreeningForm from "./screeningForm/sagas";
 
 export default function* rootSaga() {
-  return yield all([auth, recipient]);
+  return yield all([sendScreeningForm]);
 }

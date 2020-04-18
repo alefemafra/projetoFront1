@@ -1,6 +1,5 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import auth from './auth/reducer';
-import recipient from './recipient/reducer';
+import screeningForm from "./screeningForm/reducer";
 
-export default combineReducers({ auth, recipient });
+export default combineReducers({ screeningForm });

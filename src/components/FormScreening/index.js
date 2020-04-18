@@ -14,22 +14,22 @@ import budgetPhoto from "../../assets/orcamento-examplo.jpg";
 
 const yearCarOptions = [
   { value: true, label: "2010 ou mais novo" },
-  { value: false, label: "2009 ou mais velho" }
+  { value: false, label: "2009 ou mais velho" },
 ];
 
 const documentInYourNameOptions = [
   { value: true, label: "Sim" },
-  { value: false, label: "Não" }
+  { value: false, label: "Não" },
 ];
 
 const paidCarOptions = [
   { value: true, label: "Quitado" },
-  { value: false, label: "Financiado" }
+  { value: false, label: "Financiado" },
 ];
 
 const budgetAmountOptions = [
   { value: true, label: "Valor Maximo" },
-  { value: false, label: "Solicitar Valor" }
+  { value: false, label: "Solicitar Valor" },
 ];
 
 const imagesExample = {
@@ -38,7 +38,7 @@ const imagesExample = {
   frontCar,
   backCar,
   sideCar,
-  budgetPhoto
+  budgetPhoto,
 };
 
 export default function FormScreening() {
@@ -68,8 +68,8 @@ export default function FormScreening() {
     }
   }
 
-  function handleSubmit() {
-    console.log("test");
+  function handleSubmit(data) {
+    console.log(data);
   }
 
   return (
@@ -80,7 +80,7 @@ export default function FormScreening() {
             <p> Qual é o ano do seu veículo ?</p>
             <Select
               value={yearCar}
-              onChange={e => setYearCar(e)}
+              onChange={(e) => setYearCar(e)}
               options={yearCarOptions}
               placeholder="Selecionar"
             />
@@ -89,7 +89,7 @@ export default function FormScreening() {
             <p>O documento do carro está em seu nome ?</p>
             <Select
               value={documentInYourName}
-              onChange={e => setYourName(e)}
+              onChange={(e) => setYourName(e)}
               options={documentInYourNameOptions}
               placeholder="Selecionar"
             />
@@ -98,12 +98,12 @@ export default function FormScreening() {
             <p>O carro está quitado ou financiado ?</p>
             <Select
               value={paidCar}
-              onChange={e => setPaidCar(e)}
+              onChange={(e) => setPaidCar(e)}
               options={paidCarOptions}
               placeholder="Selecionar"
             />
           </div>
-          <a onClick={e => handleChangeStep(e)}>Continuar</a>
+          <a onClick={(e) => handleChangeStep(e)}>Continuar</a>
         </StepOne>
         <StepTwo display={aproved ? "flex" : "none"}>
           <Title margin="20px 10px 30px">
@@ -128,7 +128,7 @@ export default function FormScreening() {
               <p>Qual é o valor que você deseja financiar ?</p>
               <Select
                 value={budgetAmount}
-                onChange={e => handleChangeBudget(e)}
+                onChange={(e) => handleChangeBudget(e)}
                 options={budgetAmountOptions}
                 placeholder="Selecionar"
               />

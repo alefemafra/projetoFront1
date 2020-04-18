@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import logo from "~/assets/logo.png";
 
@@ -13,7 +14,9 @@ export default function Header() {
         </div>
 
         <nav>
-          <li>Verificar Progresso</li>
+          <li>
+            <Link to="/protocolo">Verificar Protocolo</Link>
+          </li>
         </nav>
       </Content>
     </Container>

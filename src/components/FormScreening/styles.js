@@ -27,7 +27,7 @@ export const Container = styled.div`
 
 export const StepOne = styled.div`
   width: 100%;
-  display: ${props => props.display || "block"};
+  display: ${(props) => props.display || "block"};
 
   div {
     p {
@@ -39,7 +39,7 @@ export const StepOne = styled.div`
 `;
 
 export const StepTwo = styled.div`
-  display: ${props => props.display || "block"};
+  display: ${(props) => props.display || "block"};
   flex-flow: row wrap;
   justify-content: center;
 
@@ -124,11 +124,11 @@ export const Title = styled.p`
   font-size: 25px;
   font-weight: 600;
   width: 100%;
-  margin: ${props => props.margin || "0px"};
+  margin: ${(props) => props.margin || "0px"};
 `;
 
 export const BudgetValue = styled.div`
-  display: ${props => props.display || "block"};
+  display: ${(props) => props.display || "block"};
   flex-flow: column;
   width: 50%;
   margin-left: 30px;
