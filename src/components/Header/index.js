@@ -10,10 +10,15 @@ export default function Header() {
     <Container>
       <Content>
         <div>
-          <img src={logo} alt="Banco RNX Maxinvest" />
+          <Link to="/">
+            <img src={logo} alt="Banco RNX Maxinvest" />
+          </Link>
         </div>
 
         <nav>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
           <li>
             <Link to="/protocolo">Verificar Protocolo</Link>
           </li>

@@ -25,6 +25,7 @@ export const ViewProgressForm = styled.div`
   display: ${(props) => props.display || "flex"};
   flex-flow: row;
   align-items: flex-end;
+  justify-content: center;
 
   div {
     label {

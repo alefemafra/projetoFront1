@@ -26,6 +26,15 @@ export const Content = styled.div`
       list-style: none;
       color: #000000;
       font-size: 17px;
+      padding: 0 15px;
+
+      &:first-child {
+        padding: 0 15px 0 0;
+      }
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
     }
   }
 `;

@@ -5,19 +5,12 @@ import api from "~/services/api";
 
 import { sendFormSuccess, sendFormFailure } from "./actions";
 
-export function* sendScreeningForm({ payload }) {
+export function* sendProtocolForm({ payload }) {
   try {
-    //TODO: Create Payload for send and get all parameters
+    // TODO: Mount Payload, change path
     const {} = payload;
 
-    const mountPayloadToSend = {
-      anoVaiculo: "A",
-      seDocumentoNomeUsuario: "S",
-      situacaoVeiculo: "Q",
-      triagemArquivo: [],
-    };
-
-    const response = yield call(api.get, "WS/Triagem", { mountPayloadToSend });
+    const response = yield call(api.get, "WS/Triagem");
 
     yield put(sendFormSuccess(response.data));
   } catch (err) {
@@ -27,5 +20,5 @@ export function* sendScreeningForm({ payload }) {
 }
 
 export default all([
-  takeLatest("@screeningForm/SEND_REQUEST", sendScreeningForm),
+  takeLatest("@protocolVerify/SEND_REQUEST", sendProtocolForm),
 ]);
