@@ -21,14 +21,38 @@ export const Title = styled.p`
   margin: 10px 0 35px;
 `;
 
-export const ProtocolInformation = styled.div`
+export const ProtocolInformation = styled.div``;
+
+export const HeaderInformation = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  margin-top: 50px;
+  margin: 30px 0 10px;
 
   p {
     color: white;
     font-size: 16px;
   }
+`;
+
+export const BodyInformation = styled.div`
+  display: flex;
+  flex-flow: column;
+`;
+
+export const CardInformation = styled.div`
+  display: flex;
+  flex-flow: row;
+  margin: 10px 0;
+
+  p {
+    color: white;
+    font-size: 16px;
+  }
+`;
+
+export const CardPayment = styled.div`
+  display: flex;
+  flex-flow: column;
+  margin-right: 50px;
 `;

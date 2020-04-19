@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form } from "@unform/web";
 import { Input } from "~/components/Form";
 import Pending from "~/components/Protocol/Pending";
+import Approved from "~/components/Protocol/Approved";
 
 import { Container, Content, ViewProgressForm, Title } from "./styles";
 
@@ -9,7 +10,11 @@ export default function CheckProtocolProgress() {
   const [protocol, setProtocol] = useState({
     id: "123",
     name: "Alefe Emanoel Mafra",
-    status: "Em analise",
+    status: "Concluido",
+    aprovedValeu: "12.000,00",
+    firstCondition: "400,00",
+    secondCondition: "300,00",
+    thirdCondition: "200,00",
   });
   const [submitForm, setsubmitForm] = useState(false);
 
@@ -39,7 +44,7 @@ export default function CheckProtocolProgress() {
           </ViewProgressForm>
         </Form>
 
-        <Pending protocol={protocol} />
+        <Approved protocol={protocol} />
       </Content>
     </Container>
   );

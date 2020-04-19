@@ -10,10 +10,10 @@ export default function Pending({ protocol }) {
 
         <ProtocolInformation>
           <div>
-            Nome do requirente: {protocol.name}
+            <p>Nome do requirente: {protocol.name}</p>
           </div>
           <div>
-            Status: {protocol.status}
+            <p>Status: {protocol.status}</p>
           </div>
         </ProtocolInformation>
       </Content>
